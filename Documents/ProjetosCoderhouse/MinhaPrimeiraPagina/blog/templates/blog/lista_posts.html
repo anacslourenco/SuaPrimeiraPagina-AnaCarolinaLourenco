@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Posts</title>
+</head>
+<body>
+    <h1>Posts</h1>
+    <a href="{% url 'cria_post' %}">Criar Post</a>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <h2><a href="{% url 'detalhe_post' post.id %}">{{ post.titulo }}</a></h2>
+                <p>{{ post.conteudo }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

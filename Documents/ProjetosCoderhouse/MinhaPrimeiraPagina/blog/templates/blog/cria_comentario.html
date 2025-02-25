@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Comentário</title>
+</head>
+<body>
+    <h1>Adicionar Comentário ao Post: "{{ post.titulo }}"</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+    </form>
+    <a href="{% url 'detalhe_post' post.id %}">Voltar para o post</a>
+</body>
+</html>
+
