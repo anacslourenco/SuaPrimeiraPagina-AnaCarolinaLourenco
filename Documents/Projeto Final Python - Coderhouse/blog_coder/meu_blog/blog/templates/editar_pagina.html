@@ -1,0 +1,19 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Editar Página{% endblock %}
+
+{% block content %}
+    <h1>Editar Página: {{ pagina.titulo }}</h1>
+    
+    <form method="post" enctype="multipart/form-data" class="form-container">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-primary">Salvar alterações</button>
+    </form>
+
+    <p><a href="{% url 'detalhes_pagina' pagina.id %}" class="btn-link">Cancelar</a></p>
+{% endblock %}
+
+
+

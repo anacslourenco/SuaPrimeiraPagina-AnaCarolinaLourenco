@@ -1,0 +1,19 @@
+
+{% extends "base.html" %}
+
+{% block title %}Criar Post{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Criar Novo Post</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="titulo">Título:</label>
+            <input type="text" name="titulo" id="titulo" required><br>
+            <label for="conteudo">Conteúdo:</label>
+            <textarea name="conteudo" id="conteudo" required></textarea><br>
+            <button type="submit">Criar Post</button>
+        </form>
+
+    <p><a href="{% url 'lista_paginas' %}" class="btn-link">Voltar</a></p>
+{% endblock %}

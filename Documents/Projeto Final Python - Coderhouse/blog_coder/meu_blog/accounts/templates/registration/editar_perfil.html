@@ -1,0 +1,68 @@
+
+{% extends "base.html" %}
+
+{% block title %}Editar Perfil{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Editar Perfil</h2>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="alert alert-{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="{{ form.first_name.id_for_label }}">Nome:</label>
+            {{ form.first_name }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.last_name.id_for_label }}">Sobrenome:</label>
+            {{ form.last_name }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}">Nome de Usuário:</label>
+            {{ form.username }}
+            <small class="form-text text-muted">{{ form.username.help_text }}</small>
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.email.id_for_label }}">Email:</label>
+            {{ form.email }}
+        </div>
+
+        {% if form.instance.avatar %}
+        <div class="form-group">
+            <label>Avatar Atual:</label><br>
+            <img src="{{ form.instance.avatar.url }}" alt="Avatar atual" style="max-width: 150px; border-radius: 50%;">
+        </div>
+        {% endif %}
+
+        <div class="form-group">
+            <label for="{{ form.avatar.id_for_label }}">Foto de Perfil:</label>
+            {{ form.avatar }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.biografia.id_for_label }}">Biografia:</label>
+            {{ form.biografia }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.data_nascimento.id_for_label }}">Data de Nascimento:</label>
+            {{ form.data_nascimento }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+        <a href="{% url 'perfil_usuario' %}" class="btn btn-secondary" style="margin-left: 10px;">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

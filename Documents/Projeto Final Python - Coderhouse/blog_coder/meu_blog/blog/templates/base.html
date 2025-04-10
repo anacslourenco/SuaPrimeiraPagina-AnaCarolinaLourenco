@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Meu Blog{% endblock %}</title>
+    
+    {% load static %}
+    
+    <!-- Link para o arquivo CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    
+    <!-- Bloco extra para inclusão de conteúdo no cabeçalho -->
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <h1>Meu Blog</h1>
+    </header>
+
+    <!-- Breadcrumbs: Exibição de navegação -->
+    {% if breadcrumbs %}
+        <div class="breadcrumb">
+            <a href="{% url 'home' %}">Home</a> &gt;
+            {% for crumb in breadcrumbs %}
+                <a href="{{ crumb.url }}">{{ crumb.name }}</a> &gt;
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">Sobre</a></li>
+            <li><a href="{% url 'lista_paginas' %}">Páginas</a></li>
+
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'criar_pagina' %}">Criar Página</a></li>
+                <li><a href="{% url 'perfil_usuario' %}">Perfil</a></li>
+                <li><a href="{% url 'editar_perfil' %}">Editar Perfil</a></li> <!-- Link para editar o perfil -->
+                <li>
+                    <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit" style="border: none; background: none; color: #007bff; cursor: pointer;">Logout</button>
+                    </form>
+                </li>
+            {% else %}
+                <li><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                <li><a href="{% url 'register' %}">Inscrever-se</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Meu Blog | Todos os direitos reservados</p>
+    </footer>
+
+    <div style="height: 80px;"></div>
+
+</body>
+</html>

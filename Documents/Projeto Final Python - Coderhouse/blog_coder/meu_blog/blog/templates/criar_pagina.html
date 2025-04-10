@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Criar Página{% endblock %}
+
+{% block content %}
+    <h2>Criar Nova Página</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Criar Página</button>
+    </form>
+
+    <a href="{% url 'perfil_usuario' %}" class="btn-link">Voltar ao perfil</a>
+    <a href="{% url 'lista_paginas' %}" class="btn-link">Voltar para a lista de páginas</a>
+{% endblock %}
+
+
+

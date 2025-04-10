@@ -1,0 +1,15 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Detalhes da Mensagem{% endblock %}
+
+{% block content %}
+    <h2>Mensagem de {{ mensagem.remetente.username }}</h2>
+    <div class="mensagem">
+        <p>{{ mensagem.conteudo }}</p>
+        <p><em>Enviada em: {{ mensagem.data_envio|date:"d M, Y - H:i" }}</em></p>
+    </div>
+
+    <p><a href="{% url 'lista_mensagens' %}" class="btn-link">Voltar para as mensagens</a></p>
+{% endblock %}
+

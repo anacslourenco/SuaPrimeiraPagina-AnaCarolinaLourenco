@@ -1,0 +1,17 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Excluir Página{% endblock %}
+
+{% block content %}
+    <h1>Excluir Página</h1>
+    
+    <p>Tem certeza de que deseja excluir a página <strong>"{{ pagina.titulo }}"</strong>?</p>
+    
+    <form method="post" class="form-container">
+        {% csrf_token %}
+        <button type="submit" class="btn-danger">Sim, excluir</button>
+        <a href="{% url 'detalhes_pagina' pagina.id %}" class="btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}
+

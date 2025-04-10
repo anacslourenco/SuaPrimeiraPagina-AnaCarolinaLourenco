@@ -1,0 +1,10 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container text-center">
+    <h2>Você saiu da sua conta.</h2>
+    <p>Se você deseja acessar novamente, clique abaixo para fazer login.</p>
+    <a href="{% url 'login' %}" class="btn btn-primary">Entrar novamente</a>
+</div>
+{% endblock %}

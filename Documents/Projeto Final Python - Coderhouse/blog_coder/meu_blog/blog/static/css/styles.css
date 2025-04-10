@@ -1,0 +1,500 @@
+
+/* Geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lora', serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    font-size: 1.1em;
+    padding-bottom: 400px;
+}
+
+/* Header */
+header {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+
+/* Navegação */
+nav {
+    background-color: #34495e;
+    padding: 10px;
+}
+
+nav ul {
+    display: flex; /* Exibir na horizontal */
+    justify-content: center; /* Centraliza os itens */
+    list-style: none; /* Remover as bolinhas de lista */
+}
+
+nav ul li {
+    margin: 0 15px; /* Espaçamento entre os itens */
+}
+
+nav a {
+    color: #ecf0f1;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+nav a:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+/* Main Content */
+main {
+    width: 80%;
+    margin: 20px auto;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+/* Cards */
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    padding: 15px;
+}
+
+.card h3 {
+    font-size: 1.6em;
+    color: #333;
+}
+
+.card p {
+    font-size: 1.1em;
+    color: #666;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+
+/* Formulários */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* Botões */
+button[type="submit"], .btn-primary {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button[type="submit"]:hover, .btn-primary:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Organiza os itens verticalmente em telas pequenas */
+        align-items: center; /* Centraliza os itens */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Espaço entre os itens na versão vertical */
+    }
+
+    main {
+        width: 95%;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    footer {
+        background-color: #2c3e50;
+        color: #fff;
+        text-align: center;
+        padding: 2px 0;
+        font-size: 0.6em;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .card {
+        margin: 15px 0;
+        padding: 10px;
+    }
+
+    .card-title {
+        font-size: 1.4em;
+    }
+
+    .pagina-titulo {
+        font-size: 1.1em;
+    }
+
+    .btn-criar, .btn-login {
+        font-size: 1em;
+        padding: 8px 18px;
+        margin-top: 10px;
+    }
+
+    button[type="submit"] {
+        max-width: 300px;
+    }
+}
+
+/* Ajustes no formulário */
+form {
+    width: 100%;
+}
+
+.form-container {
+    padding: 15px;
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 4px 0;
+    font-size: 0.8em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
+
+/* Botão de login */
+.btn-login {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    font-size: 1.1em;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+
+.btn-login:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+/* Botão Inscrever-se na página de login */
+.btn-criar {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    font-size: 1.1em;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-criar:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+/* Lista de Páginas */
+.pagina-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.pagina-item {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+.pagina-titulo {
+    color: #2980b9;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.pagina-titulo:hover {
+    text-decoration: underline;
+}
+
+.pagina-actions {
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.action-link {
+    color: #2980b9;
+    text-decoration: none;
+}
+
+.action-link:hover {
+    text-decoration: underline;
+}
+
+/* Mensagens */
+.mensagem {
+    border-left: 5px solid #3498db;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 5px;
+}
+
+.mensagem-vazia {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+}
+
+.mensagem-card {
+    background: #f8f9fa;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.mensagem-card a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+.mensagem-card a:hover {
+    color: #007bff;
+}
+
+/* Imagem de Página */
+.img-pagina {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+/* Formulários de perfil */
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Estilo para o formulário de edição */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Mensagens de sucesso ou erro */
+.messages {
+    margin-bottom: 20px;
+}
+
+.alert {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+/* Estilos do formulário */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo dos botões */
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Imagem de avatar */
+#id_avatar {
+    margin-top: 10px;
+}
+
+
+
+.perfil-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.perfil-titulo {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.perfil-card {
+    background-color: #fdfdfd;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.08);
+    padding: 30px;
+    text-align: center;
+}
+
+.perfil-avatar {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ccc;
+    margin-bottom: 15px;
+}
+
+.perfil-avatar-placeholder {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #bbb;
+    color: white;
+    font-size: 50px;
+    line-height: 150px;
+    margin: 0 auto 15px;
+}
+
+.perfil-nome {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.perfil-username {
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.perfil-botoes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.perfil-botoes .btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-editar {
+    background-color: #ffc107;
+}
+
+.btn-senha {
+    background-color: #17a2b8;
+}
+
+.btn-sair {
+    background-color: #dc3545;
+}

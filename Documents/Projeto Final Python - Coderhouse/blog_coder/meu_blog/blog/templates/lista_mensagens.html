@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Mensagens{% endblock %}
+
+{% block content %}
+  <h2>Mensagens</h2>
+
+  {% if mensagens %}
+    <ul class="mensagens-lista">
+      {% for mensagem in mensagens %}
+        <li class="mensagem-card">
+          <a href="{% url 'detalhes_mensagem' mensagem.id %}">
+            <strong>{{ mensagem.remetente.username }}:</strong> 
+            <span class="conteudo-preview">{{ mensagem.conteudo|truncatechars:50 }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="mensagem-vazia">Você não tem mensagens.</p>
+  {% endif %}
+
+  <a href="{% url 'enviar_mensagem' %}" class="btn-nova-mensagem">Nova Mensagem</a>
+{% endblock %}
+

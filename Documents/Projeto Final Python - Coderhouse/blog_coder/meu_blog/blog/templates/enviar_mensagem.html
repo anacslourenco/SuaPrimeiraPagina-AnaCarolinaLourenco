@@ -1,0 +1,17 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Enviar Mensagem{% endblock %}
+
+{% block content %}
+    <h2>Enviar mensagem</h2>
+    <form method="POST" class="form-container">
+        {% csrf_token %}
+        <label for="conteudo">Mensagem:</label>
+        <textarea name="conteudo" id="conteudo" required class="textarea"></textarea>
+        <button type="submit" class="btn-primary">Enviar</button>
+    </form>
+
+    <p><a href="{% url 'lista_mensagens' %}" class="btn-link">Voltar</a></p>
+{% endblock %}
+

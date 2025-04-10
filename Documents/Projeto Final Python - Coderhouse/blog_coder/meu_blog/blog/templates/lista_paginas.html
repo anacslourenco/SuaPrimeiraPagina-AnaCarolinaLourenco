@@ -1,0 +1,42 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Páginas{% endblock %}
+
+{% block content %}
+  <h2>Lista de Páginas</h2>
+
+  {% if paginas %}
+    <ul class="pagina-list">
+      {% for pagina in paginas %}
+        <li class="pagina-item">
+          <div class="card">
+            <h3 class="card-title">
+              <a href="{% url 'detalhes_pagina' pagina.pk %}" class="pagina-titulo">{{ pagina.titulo }}</a>
+            </h3>
+            <p class="card-meta">Publicado em: {{ pagina.data_publicacao|date:"d M, Y" }}</p>
+            <p class="card-content">{{ pagina.conteudo|truncatewords:20 }}</p>
+            <a href="{% url 'detalhes_pagina' pagina.pk %}" class="card-link">Leia mais</a>
+            
+            {% if user.is_authenticated %}
+              <div class="pagina-actions">
+                <a href="{% url 'editar_pagina' pagina.pk %}" class="action-link">Editar</a> |
+                <a href="{% url 'excluir_pagina' pagina.pk %}" class="action-link">Excluir</a>
+              </div>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Ainda não há páginas.</p>
+  {% endif %}
+
+  {% if user.is_authenticated %}
+    <a href="{% url 'criar_pagina' %}" class="btn-criar">Criar nova página</a>
+  {% else %}
+    <p><a href="{% url 'login' %}" class="btn-login">Faça login</a> para criar páginas.</p>
+  {% endif %}
+{% endblock %}
+
+

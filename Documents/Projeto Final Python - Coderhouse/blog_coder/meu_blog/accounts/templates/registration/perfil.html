@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="perfil-container">
+    <h2 class="perfil-titulo">Meu Perfil</h2>
+
+    <div class="perfil-card">
+        <div class="perfil-conteudo">
+            {% if usuario.avatar %}
+                <img src="{{ usuario.avatar.url }}" alt="Avatar" class="perfil-avatar">
+            {% else %}
+                <div class="perfil-avatar-placeholder">?</div>
+            {% endif %}
+
+            <h4 class="perfil-nome">{{ usuario.first_name }} {{ usuario.last_name }}</h4>
+            <p class="perfil-username">@{{ usuario.username }}</p>
+            <p><strong>Email:</strong> {{ usuario.email }}</p>
+
+            {% if usuario.biografia %}
+                <p><strong>Sobre mim:</strong><br>{{ usuario.biografia }}</p>
+            {% endif %}
+
+            {% if usuario.data_nascimento %}
+                <p><strong>Data de nascimento:</strong> {{ usuario.data_nascimento|date:"d/m/Y" }}</p>
+            {% endif %}
+
+            <div class="perfil-botoes">
+                <a href="{% url 'editar_perfil' %}" class="btn btn-editar">Editar Perfil</a>
+                <a href="{% url 'password_change' %}" class="btn btn-senha">Alterar Senha</a>
+                <a href="{% url 'logout' %}" class="btn btn-sair">Sair</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
